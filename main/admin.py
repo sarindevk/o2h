@@ -1,0 +1,15 @@
+from django.contrib import admin
+from main.models import Product, Product_category, Product_bucket
+
+
+class BucketAdmin(admin.ModelAdmin):
+	model = Product_bucket
+	list_display = ['bucket','name']
+	
+	def get_product(self, obj):
+		return obj.product.name
+
+# Register your models here.
+admin.site.register(Product)
+admin.site.register(Product_category)
+admin.site.register(Product_bucket, BucketAdmin)

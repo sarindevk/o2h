@@ -1,0 +1,39 @@
+{% extends "main/header.html" %}
+
+{% block content %}
+{% load staticfiles%}
+<link href='https://fonts.googleapis.com/css?family=Didact+Gothic' rel='stylesheet' type='text/css'>
+
+<div class="bucketlist">
+	<div class="bucket" onclick="window.location='/product/?bucket=curry'">
+		<div class="buckettopbar">
+			<h3>Curry Vegetables</h3>
+		</div>
+		<div class="imgwrapper">
+		   <img src="{% static 'images/curry.jpg' %}" class="img-responsive">
+		</div>
+		
+	</div>
+	<div class="bucket" onclick="window.location='/product/?bucket=base'">
+		<div class="buckettopbar">
+			<h3>Base Vegetables</h3>
+		</div>
+		<div class="imgwrapper">
+		   <img src="{% static 'images/base.jpg' %}" class="img-responsive">
+		</div>
+		
+	</div>
+	<div class="bucket" onclick="window.location='/product/?bucket=thooran'">
+		<div class="buckettopbar">
+			<h3>Thooran Vegetables</h3>
+		</div>
+		<div class="imgwrapper">
+		   <img src="{% static 'images/thooran.jpg' %}" class="img-responsive">
+		</div>
+		
+	</div>
+	
+	
+</div>
+
+{% endblock %}

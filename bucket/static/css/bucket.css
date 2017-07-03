@@ -1,0 +1,63 @@
+.bucketlist
+{
+width: 100%;
+
+
+}
+      
+.bucket{
+	float: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	width: 33%;
+	cursor:pointer;
+
+	-webkit-transition: all 0.3s;
+
+}
+
+.bucket:hover {
+
+    transform: translateY(-10px);
+}
+
+.bucket h3{
+	font-size: 20px;
+	text-align: center;
+	color: white;
+}
+
+.buckettopbar {
+
+	width: 100%;
+	background-color: #53A318;
+	padding-top: 0.1px;
+	padding-bottom: 0.1px;
+
+}
+
+@media (max-width: 880px) {
+
+.bucket{
+width: 50%;
+
+}
+
+.bucket h3{
+
+	font-size: 16px;
+	text-align: center;
+}
+
+
+
+}
+
+@media (max-width: 400px) {
+
+.bucket{
+width: 100%;
+
+}
+

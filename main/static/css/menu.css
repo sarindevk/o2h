@@ -1,0 +1,152 @@
+/* i am not using this */
+.rightsidemenu {
+     color: #fff;
+
+
+
+	 border: 0;
+	background: none;
+	 box-shadow:none;
+	 border-radius: 0px;   
+	 
+
+ font-family: 'Lobster', cursive;
+ font-size: 27px; font-weight: normal; 
+  text-shadow: 1px 1px 2px #082b34;
+/*font-family: 'Mogra', cursive;*/
+ width: auto;
+ display:inline-block;    
+}
+
+.bar1, .bar2, .bar3 {
+    width: 35px;
+    height: 5px;
+    background-color: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    -webkit-transform: rotate(-45deg) translate(-6px, 4px) ;
+    transform: rotate(-45deg) translate(-6px, 4px) ;
+}
+
+.change .bar2 {opacity: 0;}
+
+.change .bar3 {
+    -webkit-transform: rotate(45deg) translate(-8px, -8px) ;
+    transform: rotate(45deg) translate(-8px, -8px) ;
+}
+/* Not using this */
+
+.topbar {
+    overflow: hidden;
+    background-color: #53A318;
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index:1; /*Add this*/
+}
+
+/* Links inside the navbar */
+.topbar a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* This is the content in between the header and the footer */
+.main {
+
+ margin-top: 45px;
+}
+
+/* Logo */
+
+.logo {
+
+float: left;
+width:auto;
+position: relative;
+
+padding-bottom: 2px;
+}
+
+.burger {
+ 
+ color: #fff;
+ display: inline-block;
+ outline: none;
+ border: 0;
+ background: none;
+ box-shadow:none;
+ border-radius: 0px;
+  font-size:27px;
+  text-shadow: 1px 1px 2px #082b34;
+  margin-top: 20px;
+}
+
+.burger:active, .burger:hover, .rightmenu:active, .rightmenu:hover {
+
+background: #08e8e8;
+}
+
+.topbar h3 {
+
+position: relative;
+text-align: center;
+
+padding-left: 2.5%;
+
+ color: #FFF; 
+ font-family: 'Lobster', cursive;
+ font-size: 35px; font-weight: normal; 
+  text-shadow: 1px 1px 2px #082b34;
+/*font-family: 'Mogra', cursive;*/
+ width: auto;
+ display:inline-block; 
+}
+
+.rightmenu {
+	float: right;
+	margin-right: 15px;
+	margin-top: 15px;
+
+}
+
+#myCarousel {
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: 80px;
+
+}
+
+.imgCarousel img {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+@media (max-width: 880px) {
+	
+	.topbar h3 {
+		font-size: 6vmin; 
+
+		}
+	
+	
+	}
+@media (max-width: 480px) {
+	
+	.topbar h3 {
+		font-size: 4vmin; 
+		display: none;
+		}
+	
+	
+	}
+

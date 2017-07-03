@@ -1,0 +1,58 @@
+.product_page{
+padding-top: 50px;
+
+}
+
+.options{
+	float: left;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 5px;
+	width: 40%;
+}
+
+
+/*
+.viewport{
+	width: 40%;
+	height: 60px;
+	overflow: hidden;
+	position: relative;
+}
+
+.slide{
+
+}
+
+
+.left:active{
+color: white;
+}
+.left{
+position:absolute;
+margin-left: 5%;
+z-index: 100;
+font-size: 50px;
+color: green;
+}
+
+
+.right:active{
+color: white;
+}
+
+.right{
+	position: absolute;
+
+	font-size: 50px;
+	color: green;
+	margin-left: 85%;
+}
+
+.slideimg{
+display: inline;
+position: absolute;
+}
+*/
+
+
