@@ -1,28 +1,5 @@
 from django.db import models
 
-class Product_bucket(models.Model):
-
-# Declaring constants 
-	BASE		=	'Base'	
-	CURRY		=	'Curry'
-	THORAN	=	'Thooran'
-
-	BUCKETS = (
-	 (BASE,'Base'),
-	 (CURRY,'Curry'),
-	 (THORAN,'Thooran'),
-	)
-	
-	name 		=	models.CharField(max_length=40)
-	bucket	=	models.CharField(max_length=40,choices=BUCKETS,default=BASE)	
-	
-	def __str__(self):
-		return str(self.name)	
-	
-	
-	class Meta:
-		db_table = 'product_bucket' 
-
 class Product(models.Model):
 
 	KG				=	'KG'
@@ -34,8 +11,8 @@ class Product(models.Model):
 	)
 	
 	
-	
-	name 		= 	models.ForeignKey(Product_bucket,  unique=True)	
+	name 		=	models.CharField(max_length=40, primary_key=True)	
+	#name		= models.OneToOneField(Product_bucket,on_delete=models.CASCADE,primary_key=True)
 	desc 		= 	models.CharField(max_length=140)
 #	price 	= 	models.DecimalField(max_digits=10, decimal_places=2)
 	unit		=	models.CharField(max_length=2,choices=UNITS,default=KG)
@@ -50,6 +27,31 @@ class Product(models.Model):
 	class Meta:
 		db_table = 'master_products' 
 #		unique_together = ('name','category')	
+
+class Product_bucket(models.Model):
+
+# Declaring constants 
+	BASE		=	'Base'	
+	CURRY		=	'Curry'
+	THORAN	=	'Thooran'
+
+	BUCKETS = (
+	 (BASE,'Base'),
+	 (CURRY,'Curry'),
+	 (THORAN,'Thooran'),
+	)
+	
+	name 		= 	models.ForeignKey(Product)	
+	bucket	=	models.CharField(max_length=40,choices=BUCKETS,default=BASE)	
+	
+	def __str__(self):
+		return str(self.name)	
+	
+	
+	class Meta:
+		db_table = 'product_bucket'
+		unique_together = ('name','bucket')	 
+	
 	
 class Product_category(models.Model):
 

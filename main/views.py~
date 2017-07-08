@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from main.models import Product, Product_category, Product_bucket
 from django.http import HttpResponse
-
-
+from django.db.models import Prefetch
 
 
 # Create your views here.
@@ -10,7 +9,7 @@ from django.http import HttpResponse
 def index (request):
 	
 	#setting default bucket
-	bucket = 'curry'	
+	bucket = 'Curry'	
 	
 	if request.method=='GET':
 		bucket = request.GET.get('bucket')
@@ -29,17 +28,16 @@ def index (request):
 	elif bucket == 'Thooran':
 		thooran='active'
 				
-		
-	bucketset 	=  Product_bucket.objects.filter(bucket=bucket)
-	print("Bucket List : ",bucketset)
-	productset	=	Product.objects.filter(name=bucketset).select_related().all()
-#	print("Product List : ",productset)
-	categoryset	=	Product_category.objects.all().prefetch_related('name')
 	
-	for i in range(len(productset)):
-		print(categoryset[i].name, categoryset[i].price)	
+
+	bucketset 	=  Product_bucket.objects.filter(bucket=bucket).all()
+	productset	=	Product.objects.filter(name__in=[bucket.name for bucket in bucketset]).all()
 	
-		
+	print(productset)
+
+	categoryset	=	Product_category.objects.filter(name__in=[product.name for product in productset], category='Organic').all()
+	print(categoryset)
+	
 	
 	
 #	if request.POST.get('addtocart') != None:
@@ -54,9 +52,9 @@ def index (request):
 		print("Refreshing ")		
 		clear_cart(request)
 	
-	return render(request, 'main/product.html',{'products':productset, 
-															  'categories':categoryset,
-															  'testing':'',
+	return render(request, 'main/product.html',{
+#															  'products':productset, 
+#															  'categories':categoryset,
 															  'carousel':'display:none',
 															  'base':base,
 															  'curry':curry,

@@ -59,6 +59,22 @@ function updateText(type,self) {
 
 }
 
+$('#carousel_bucket').bind('slid.bs.carousel', function (e) {
+   idx = $("#carousel_bucket .item.active").index();
 
+   if(idx==0){
+		window.location='/product/?bucket=Curry';
+   }
+
+	if(idx==1){
+		window.location='/product/?bucket=Base';
+	}   
+
+	if(idx==2){
+		window.location='/product/?bucket=Thooran';
+	}   
+   
+   
+});
 
 
