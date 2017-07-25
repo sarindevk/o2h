@@ -14,8 +14,8 @@
 <div class="options" >
    <div id="carousel_bucket" class="carousel slide" data-ride="carousel" data-interval="false">
     <!-- Indicators -->
-    <ol class="carousel-indicators" >
-      <li data-target="#carousel_bucket" data-slide-to="0" class="{{curry}}"></li>
+    <ol class="carousel-indicators" style="margin-bottom: 40px;">
+      <li data-target="#carousel_bucket" data-slide-to="0" class="{{curry}}" ></li>
       <li data-target="#carousel_bucket" data-slide-to="1" class="{{base}}"></li>
       <li data-target="#carousel_bucket" data-slide-to="2" class="{{thooran}}"></li>
     </ol>
@@ -24,7 +24,7 @@
     <div class="carousel-inner">
       <div class="item {{curry}}">
         
-        <img class="img-responsive" src="{% static 'images/curry.jpg' %}" alt="Image #1" >
+        <img class="img-responsive" src="{% static 'images/bucket.png' %}" alt="Image #1" >
         <div class="absolute-div">
         		<div class="carousel-caption">
             	<h3>Curry Vegetables</h3>
@@ -33,7 +33,7 @@
       </div>
 
       <div class="item {{base}}">
-        <img src="{% static 'images/base.jpg' %}" alt="Image #2" >
+        <img class="img-responsive" src="{% static 'images/bucket.png' %}" alt="Image #2" >
         <div class="absolute-div">
         		<div class="carousel-caption">
             	<h3>Base Vegetables</h3>
@@ -42,7 +42,7 @@
       </div>
     
       <div class="item {{thooran}}">
-        <img src="{% static 'images/thooran.jpg' %}" alt="Image #3" >
+        <img class="img-responsive" src="{% static 'images/bucket.png' %}" alt="Image #3" >
         <div class="absolute-div">
         		<div class="carousel-caption">
             	<h3>Thooran Vegetables</h3>
@@ -52,11 +52,11 @@
     </div>
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#carousel_bucket" data-slide="prev" style="width:20%; background-image: linear-gradient(to right,rgba(75,179,19,.5) 0,rgba(75,179,19,.0001) 100%);">
+    <a class="left carousel-control" href="#carousel_bucket" data-slide="prev" style="width:20%; background-image: none;">
       <span class="glyphicon glyphicon-chevron-left"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#carousel_bucket" data-slide="next" style="width:20%; background-image: linear-gradient(to right,rgba(75,179,19,.0001) 0,rgba(75,179,19,.5) 100%);" >
+    <a class="right carousel-control" href="#carousel_bucket" data-slide="next" style="width:20%; background-image: none;" >
       <span class="glyphicon glyphicon-chevron-right"></span>
       <span class="sr-only">Next</span>
     </a>
@@ -64,62 +64,76 @@
 
 </div>
 	
-
-<div class="options" >
-   <div id="carousel_type" class="carousel slide" data-ride="carousel" data-interval="false">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#carousel_type" data-slide-to="0" class="active"></li>
-      <li data-target="#carousel_type" data-slide-to="1"></li>
-      <li data-target="#carousel_type" data-slide-to="2"></li>
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner">
-      <div class="item active">
-        <img src="{% static 'images/curry.jpg' %}" alt="Image #1" >
-      </div>
-
-      <div class="item">
-        <img src="{% static 'images/base.jpg' %}" alt="Image #2" >
-      </div>
-    
-      <div class="item">
-        <img src="{% static 'images/thooran.jpg' %}" alt="Image #3" >
-      </div>
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#carousel_type" data-slide="prev" style="width:20%; background-image: linear-gradient(to right,rgba(75,179,19,.5) 0,rgba(75,179,19,.0001) 100%);">
-      <span class="glyphicon glyphicon-chevron-left"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#carousel_type" data-slide="next" style="width:20%; background-image: linear-gradient(to right,rgba(75,179,19,.0001) 0,rgba(75,179,19,.5) 100%);" >
-      <span class="glyphicon glyphicon-chevron-right"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-
-</div>	
 </div>
-	
-		
+
+<div style="width: 100%; display: inline-block;">
+<hr class="seperator">
+</div>
 	{% for product in products %}
 	
 	<div class = "prod_box">
 		<!--div class="top_prod_box">Hi</div-->
 		<div class="prod_info">
 
-          <div class="thumbnail img-responsive prod_image"><a href="#"><img src="/media/{{ product.image }}" alt="website template image" border="0"></a></div>
-			 <div class="product_title">{{ product.desc }}</div>      
-			 <h6 align="center">{{ product.desc }}(malayalam)</h6>        
+          <div class="thumbnail img-responsive prod_image " style="border: 0 none;"><a href="#"><img src="/media/{{ product.image }}" alt="website template image"></a></div>
+			 <div class="product_title">{{ product.desc }}      
+			 <h3 align="center">{{ product.desc_mal }}</h3>
+			 </div>        
           <!--div class="product_title">{{ product.desc }}</div-->       
           <div class="prod_price"><!--span class="reduce">350Rs</span--> <span class="price">{{ product.price }}</span></div> 
       	 
       </div>	
+      <button class="prod_button" type="button" onclick="showModal(this);">Buy</button>
+		<!-- Trigger/Open The Modal -->
+		<!--button id="myBtn" class="round-button"><i class="fa fa-shopping-basket" aria-hidden="true"></i>    Buy</button>
+
+<!-- The Modal -->
+		<div id="myModal" class="modal">
+
+ 			 <!-- Modal content -->
+  			<div class="modal-content">
+   			 	<h3>{{ product.desc }}({{ product.desc_mal }} )</h3>
+
+						<hr class="seperator">
+
+
+   			 <div class="modal-body">
+   			 	<div class="modal-section">
+   			   <h4>Organic</h4>
+   			  		 <div class="quantity" >
+   			  			<button class="btn btn-primary" name="minus" value="minus" type="button" onclick="updateQty(0,this);"><i class="fa fa-minus-square" aria-hidden="true"></i></button>
+							<input  class="qty" type="text" style="width:50px; text-align: right;" name="qty" value="1">			
+							<button class="btn btn-primary" name="plus" value="plus" type="button" onclick="updateQty(1,this);"><i class="fa fa-plus-square" aria-hidden="true"></i></button>				 
+   			  		 </div>
+   			   </div>
+     			 	<div class="modal-section">
+   			   <h4>Homemade</h4>
+   			  		 <div class="quantity">
+   			  			 <button class="btn" name="minus" value="minus" type="button" onclick="updateQty(0,this);"><i class="fa fa-minus-square" aria-hidden="true"></i></button>
+							<input  class="qty" type="text" style="width:50px; text-align: right;" name="qty" value="1">			
+							<button class="btn" name="plus" value="plus" type="button" onclick="updateQty(1,this);"><i class="fa fa-plus-square" aria-hidden="true"></i></button>				 
+   			  		 </div>			 
+   			   </div> 			   
+   			   
+    			 	<div class="modal-section">
+   			   <h4>Ooty Special</h4>
+   			  		 <div class="quantity">
+   			  			 <button class="btn" name="minus" value="minus" type="button" onclick="updateQty(0,this);"><i class="fa fa-minus-square" aria-hidden="true"></i></button>
+							<input  class="qty" type="text" style="width:50px; text-align: right;" name="qty" value="1">			
+							<button class="btn" name="plus" value="plus" type="button" onclick="updateQty(1,this);"><i class="fa fa-plus-square" aria-hidden="true"></i></button>				 
+   			  		 </div>				 
+   			   </div>  			   
+   			   
+   			 </div>
+  				 <div class="modal-footer">
+  				 	<button class ="btn btn-success" type="button" onclick=""><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart</button>
+   			 	<button class ="btn btn-danger" type="button" onclick="closeModal(this);">Close</button>
+   			 </div>
+ 			</div>
+
+		</div>
 		
-		
-			<div class="prod_cart">
+			<!--div class="prod_cart">
 			<form id="ADDCART{{ forloop.counter }}" action="add_to_cart/">
 			{% csrf_token %}
 	
@@ -129,7 +143,7 @@
 				<input type="hidden" name = "product" value="{{ product.name }}">	
 				<button class="btn" name = "addtocart" type="submit" value="addtocart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart</button>			
 				</form>
-			</div>
+			</div-->
 
 
 	</div>

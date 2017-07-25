@@ -12,8 +12,8 @@ def index (request):
 	bucket = 'Curry'	
 	
 	if request.method=='GET':
-		bucket = request.GET.get('bucket')
-		print("Bucket is ",bucket)	
+		bucket 	= request.GET.get('bucket')
+
 	
 	#set the correct box active
 	curry 	= 	''
@@ -26,17 +26,20 @@ def index (request):
 	elif bucket == 'Base':
 		base='active'
 	elif bucket == 'Thooran':
-		thooran='active'
-				
+		thooran='active'	
 	
 
 	bucketset 	=  Product_bucket.objects.filter(bucket=bucket).all()
-	productset	=	Product.objects.filter(name__in=[bucket.name for bucket in bucketset]).all()
+	productset	=	Product.objects.filter(name__in=[bucket.name for bucket in bucketset]).all()	
+	categoryset	=	Product_category.objects.filter(name__in=[product.name for product in productset]).all()
+		
+#	productset	=	Product.objects.filter(name__in=[bucket.name for bucket in bucketset]).all()
+#	categoryset	=	Product_category.objects.filter(name__in=[product.name for product in productset], category=category).all()
 	
-	print(productset)
-
-	categoryset	=	Product_category.objects.filter(name__in=[product.name for product in productset], category='Organic').all()
+	print(bucketset)
 	print(categoryset)
+	print(productset)
+	
 	
 	
 	
@@ -53,13 +56,13 @@ def index (request):
 		clear_cart(request)
 	
 	return render(request, 'main/product.html',{
-#															  'products':productset, 
-#															  'categories':categoryset,
+															  'products':productset, 
+															  'categories':categoryset,
 															  'carousel':'display:none',
 															  'base':base,
 															  'curry':curry,
 															  'thooran':thooran,																  
-															  
+																		  
 															  })
 
 

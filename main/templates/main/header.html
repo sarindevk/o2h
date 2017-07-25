@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<body style="background-color: {{ mnColor }} ">
+<body style="background-color: #f0ffe5 ">
 <head>
 	<title>Organics2Home</title>
 	<meta charset="utf-8" />
@@ -21,6 +21,7 @@
 	<link rel="stylesheet" href="{% static 'css/footer-distributed-with-address-and-phones.css' %}" >
 	<link rel="stylesheet" href="{% static 'css/main.css' %}">	
 	<link rel="stylesheet" href="{% static 'css/product.css' %}">
+	<link rel="stylesheet" href="{% static 'css/popup.css' %}">
 	<!--link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"-->
 	 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
@@ -60,24 +61,24 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active imgCarousel">
-        <img src="{% static 'images/carousel.jpg' %}" alt="Image #1" >
+        <img src="{% static 'images/carousel0_ver1.png' %}" alt="Image #1" >
       </div>
 
       <div class="item imgCarousel">
-        <img src="{% static 'images/carousel2.jpg' %}" alt="Image #2" >
+        <img src="{% static 'images/carousel0_ver1.png' %}" alt="Image #2" >
       </div>
     
       <div class="item imgCarousel">
-        <img src="{% static 'images/carousel3.jpg' %}" alt="Image #3" >
+        <img src="{% static 'images/carousel0_ver1.png' %}" alt="Image #3" >
       </div>
     </div>
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="width:20%; background-image: linear-gradient(to right,rgba(75,179,19,.5) 0,rgba(75,179,19,.0001) 100%);">
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev" style="width:20%; background-image: none;">
       <span class="glyphicon glyphicon-chevron-left"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next" style="width:20%; background-image: linear-gradient(to right,rgba(75,179,19,.0001) 0,rgba(75,179,19,.5) 100%);" >
+    <a class="right carousel-control" href="#myCarousel" data-slide="next" style="width:20%; background-image: none;" >
       <span class="glyphicon glyphicon-chevron-right"></span>
       <span class="sr-only">Next</span>
     </a>
@@ -96,6 +97,7 @@
 
 <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
 <script type="text/javascript" src="{% static 'js/menu.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/popup.js' %}"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 

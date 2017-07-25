@@ -1,0 +1,107 @@
+{% extends "main/header.html" %}
+
+{% block content %}
+
+
+<!---form action="view_cart/">
+		{% csrf_token %}
+		<button name="session">Print Session</button>
+</form-->
+	{% load staticfiles%}
+<div class="product_page">
+
+<div class="product_header">
+<div class="options" >
+   <div id="carousel_bucket" class="carousel slide" data-ride="carousel" data-interval="false">
+    <!-- Indicators -->
+    <ol class="carousel-indicators" style="margin-bottom: 40px;">
+      <li data-target="#carousel_bucket" data-slide-to="0" class="{{curry}}" ></li>
+      <li data-target="#carousel_bucket" data-slide-to="1" class="{{base}}"></li>
+      <li data-target="#carousel_bucket" data-slide-to="2" class="{{thooran}}"></li>
+    </ol>
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item {{curry}}">
+        
+        <img class="img-responsive" src="{% static 'images/bucket.png' %}" alt="Image #1" >
+        <div class="absolute-div">
+        		<div class="carousel-caption">
+            	<h3>Curry Vegetables</h3>
+            </div>
+        </div>
+      </div>
+
+      <div class="item {{base}}">
+        <img class="img-responsive" src="{% static 'images/bucket.png' %}" alt="Image #2" >
+        <div class="absolute-div">
+        		<div class="carousel-caption">
+            	<h3>Base Vegetables</h3>
+            </div>
+        </div>
+      </div>
+    
+      <div class="item {{thooran}}">
+        <img class="img-responsive" src="{% static 'images/bucket.png' %}" alt="Image #3" >
+        <div class="absolute-div">
+        		<div class="carousel-caption">
+            	<h3>Thooran Vegetables</h3>
+            </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="left carousel-control" href="#carousel_bucket" data-slide="prev" style="width:20%; background-image: none;">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#carousel_bucket" data-slide="next" style="width:20%; background-image: none;" >
+      <span class="glyphicon glyphicon-chevron-right"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+</div>
+	
+</div>
+
+<div style="width: 100%; display: inline-block;">
+<hr class="seperator">
+</div>
+	{% for product in products %}
+	
+	<div class = "prod_box">
+		<!--div class="top_prod_box">Hi</div-->
+		<div class="prod_info">
+
+          <div class="thumbnail img-responsive prod_image"><a href="#"><img src="/media/{{ product.image }}" alt="website template image" border="0"></a></div>
+			 <div class="product_title">{{ product.desc }}</div>      
+			 <h6 align="center">{{ product.desc }}(malayalam)</h6>        
+          <!--div class="product_title">{{ product.desc }}</div-->       
+          <div class="prod_price"><!--span class="reduce">350Rs</span--> <span class="price">{{ product.price }}</span></div> 
+      	 
+      </div>	
+		
+		
+			<div class="prod_cart">
+			<form id="ADDCART{{ forloop.counter }}" action="add_to_cart/">
+			{% csrf_token %}
+	
+				<button class="btn" name="minus" value="minus" type="button" onclick="updateQty(0,this);"><i class="fa fa-minus-square" aria-hidden="true"></i></button>
+				<input  class="qty" type="text" style="width:50px; text-align: right;" name="qty" value="1">			
+				<button class="btn" name="plus" value="plus" type="button" onclick="updateQty(1,this);"><i class="fa fa-plus-square" aria-hidden="true"></i></button>				 
+				<input type="hidden" name = "product" value="{{ product.name }}">	
+				<button class="btn" name = "addtocart" type="submit" value="addtocart"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Add to Cart</button>			
+				</form>
+			</div>
+
+
+	</div>
+	{% endfor %}	
+
+</div>
+	
+	
+	
+{% endblock %}

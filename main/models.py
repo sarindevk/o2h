@@ -14,6 +14,7 @@ class Product(models.Model):
 	name 		=	models.CharField(max_length=40, primary_key=True)	
 	#name		= models.OneToOneField(Product_bucket,on_delete=models.CASCADE,primary_key=True)
 	desc 		= 	models.CharField(max_length=140)
+	desc_mal =	models.CharField(max_length=140)
 #	price 	= 	models.DecimalField(max_digits=10, decimal_places=2)
 	unit		=	models.CharField(max_length=2,choices=UNITS,default=KG)
 	image		=	models.ImageField(upload_to='prod_images/')

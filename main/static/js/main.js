@@ -59,9 +59,13 @@ function updateText(type,self) {
 
 }
 
+
+
+/* This is all carousel logi which will trigger the read */
 $('#carousel_bucket').bind('slid.bs.carousel', function (e) {
    idx = $("#carousel_bucket .item.active").index();
 
+	
    if(idx==0){
 		window.location='/product/?bucket=Curry';
    }
@@ -77,4 +81,21 @@ $('#carousel_bucket').bind('slid.bs.carousel', function (e) {
    
 });
 
+/*To show the popup with the various options to buy */
 
+function showModal(self) { 
+
+	var domElement = jQuery(self);
+ 	var onelevel = domElement.parent(); 
+ 
+	var modal = onelevel.find('.modal');
+	modal.css('display','block');
+
+}
+function closeModal(self) {
+	var domElement = jQuery(self);
+ 	var modal = ((domElement.parent()).parent()).parent(); 
+	
+	modal.css('display','none'); 	
+ 	
+	}

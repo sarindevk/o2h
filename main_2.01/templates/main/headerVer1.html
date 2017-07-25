@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<body style="background-color: {{ mnColor }} ">
+<head>
+	<title>Organics2Home</title>
+	<meta charset="utf-8" />
+	{% load staticfiles %}
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	<!--script>
+		Have to write this code to load jqueryincase there is some problem 
+		with CDN
+		window.jQuery || document.write("<script src = 'sdfsdf'><\/script>")
+	</script-->
+
+
+
+	<link rel="stylesheet" href="{% static 'css/header-user-dropdown.css' %} ">
+	<link rel="stylesheet" href="{% static 'css/footer-distributed-with-address-and-phones.css' %}" >
+	<link rel="stylesheet" href="{% static 'css/main.css' %}">	
+	<link rel="stylesheet" href="{% static 'css/product.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+
+	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+	
+</head>
+<body>
+<header class="header-user-dropdown">
+
+	<div class="header-limiter">
+		<h1><a href="#">Organics2<span>Home</span></a></h1>
+
+		<nav>
+			<a href="#">Home</a>
+			<a href="#">About Us</a>
+			<!--a href="#">Reports</a>
+			<a href="#">Roles <span class="header-new-feature">new</span></a-->
+		</nav>
+
+
+		<div class="header-user-menu">
+			<img src="static/images/shoppingbag-128.png" alt="User Image"/>
+			<form method="POST" action="" id="CART">
+				{% csrf_token %}			
+					<ul>
+						<li><a href="#" class="highlight">Check Out</a></li>
+						<li>
+							<input type="hidden" name="refresh">
+							<a href="#" onclick="document.forms['CART'].submit();">Refresh</a>
+						</li>
+						<li><a href="#">Logout</a></li>
+					</ul>
+			</form>
+		</div>
+
+	</div>
+
+</header>
+
+		  
+<div class="container-fluid " >	
+	{% block content %}
+	{% endblock %}	
+</div>
+
+
+
+{% include "main/footer.html" %}
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+
+</html>

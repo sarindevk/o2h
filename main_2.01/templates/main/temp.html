@@ -1,0 +1,30 @@
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<body>
+<form id="example" name="example">
+    <select name = "select" id="sensor" onchange="updateText('category',this)">
+        <option name = "Organics" value="123">Organics</option>
+        <option name = "Ooty"     value="456">Ooty</option>
+        <option name = "Homemade" value="789">Homemade</option>
+    </select>
+
+    <br />
+    <span name = 'price' class="price">123</span>
+</form>
+
+<script type="text/javascript">
+
+function updateText(type,self) { 
+ 
+ var domElement = jQuery(self);
+ var onelevel = domElement.parent(); 
+ 
+ var pricefield = onelevel.find('.price');
+ 
+ pricefield.text(domElement.val());
+
+}
+</script>
+</body>
+
+</html>
